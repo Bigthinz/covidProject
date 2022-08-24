@@ -23,7 +23,10 @@ app.post('/channels/web', async (req, res) => {
 
     try{
         const result = await detectIntentText(req.body.text)
-        res.status(200).send(result)
+        // res.status(200).send(result)
+        res.status(200).json({
+            data: result
+        })
     }catch(err){
         res.status(404).json({
             error:err
