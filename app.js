@@ -1,10 +1,12 @@
+require('dotenv').config();
 const express = require('express');
 const { SessionsClient } = require("@google-cloud/dialogflow-cx/build/src/v3/sessions_client");
 const { detectIntentText } = require("./dialogflow_api");
 
 const body_parser=require("body-parser");
 const axios=require("axios");
-require('dotenv').config();
+
+
 
 const app=express();
 
