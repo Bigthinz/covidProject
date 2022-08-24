@@ -11,23 +11,23 @@ const fs = require('fs');
     /**
      * TODO(developer): Uncomment these variables before running the sample.
      */
-     const projectId = process.env.DF_PROJECT_ID;
-     const location = process.env.LOCATION;
-     const agentId = process.env.AGENT_ID;
+     const projectId = `${process.env.DF_PROJECT_ID}`;
+     const location = `${process.env.LOCATION}`
+     const agentId = `${process.env.AGENT_ID}`
      const query = 'Hello';
-     const languageCode = process.env.LANGUAGE
+     const languageCode = `${process.env.LANGUAGE}`
  
   const sessionNum = Math.floor(1000 + Math.random() * 9000)
 
      const client = new SessionsClient(
          {
-             apiEndpoint: process.env.API_ENDPOINT,
-             projectId : process.env.DF_PROJECT_ID,
+             apiEndpoint: `${process.env.API_ENDPOINT}`,
+             projectId : `${process.env.DF_PROJECT_ID}`,
              credentials : {
-                 client_email : process.env.DF_CLIENT_EMAIL,
-                 private_key: process.env.DF_PRIVATE_KEY,
+                 client_email : `${process.env.DF_CLIENT_EMAIL}`,
+                 private_key: `${process.env.DF_PRIVATE_KEY}`,
              },
-             language: process.env.LANGUAGE
+             language: `${process.env.LANGUAGE}`
          }
      );
    
