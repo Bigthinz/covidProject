@@ -31,7 +31,7 @@ const fs = require('fs');
          }
      );
    
-     const detectIntentText  = async(queryInput)=> {
+     exports.detectIntentText  = async(queryInput)=> {
          const sessionId = '8738545981218952'
  
       //  const sessionId = Math.random().toString(36).substring(7);
@@ -73,6 +73,6 @@ const fs = require('fs');
      }
    
 
-     module.exports = {
-        detectIntentText
-    };
+    //  module.exports = {
+    //     detectIntentText
+    // };
