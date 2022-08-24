@@ -21,8 +21,15 @@ app.get('/', (req, res) => {
 
 app.post('/channels/web', async (req, res) => {
 
-    const result = await detectIntentText(req.body.text)
-    res.status(200).send(result)
+    try{
+        const result = await detectIntentText(req.body.text)
+        res.status(200).send(result)
+    }catch(err){
+        res.status(404).json({
+            error:err
+        })
+    }
+    
 
 
 
