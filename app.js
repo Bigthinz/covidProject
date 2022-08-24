@@ -9,7 +9,7 @@ require('dotenv').config();
 const app=express().use(body_parser.json());
 //create a node server
 const server = require('http').createServer(app);
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 app.use(express.static(__dirname + '/public'));
 
