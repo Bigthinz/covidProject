@@ -14,8 +14,8 @@ app.use(body_parser.json())
 
 app.use(express.json({ limit: '10kb' }))
 //create a node server
-const server = require('http').createServer(app);
-const port = process.env.PORT;
+// const server = require('http').createServer(app);
+const PORT = process.env.PORT;
 
 app.use(express.static(__dirname + '/public'));
 
@@ -46,9 +46,8 @@ app.post('/channels/web', async (req, res) => {
 
 
 
-server.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-}
-);
+const server = app.listen(PORT, () => {
+    console.log('app server is running........')
+})
 
 
