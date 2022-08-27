@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const { SessionsClient } = require("@google-cloud/dialogflow-cx/build/src/v3/sessions_client");
-const { detectIntentText } = require("./dialogflow_api");
+const  { detectIntentText }  = require("./dialogflow_api");
 
 const body_parser=require("body-parser");
 const axios=require("axios");
@@ -28,11 +28,14 @@ app.get('/', (req, res) => {
 app.post('/channels/web', async (req, res) => {
 
     try{
+      console.log('dialog mmm')
         const result = await detectIntentText(req.body.text)
-        // res.status(200).send(result)
-        res.status(200).json({
-            data: result
-        })
+
+        console.log('dialog mmm')
+        res.status(200).send(result)
+        // res.status(200).json({
+        //     data: result
+        // })
     }catch(err){
         res.status(404).json({
             error:err

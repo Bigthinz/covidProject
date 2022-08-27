@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { SessionsClient } = require("@google-cloud/dialogflow-cx/build/src/v3/sessions_client");
+// const {SessionsClient} = require('@google-cloud/dialogflow-cx')
 const fs = require('fs');
 
 
@@ -17,6 +18,8 @@ const fs = require('fs');
      const query = 'Hello';
      const languageCode = `${process.env.LANGUAGE}`
  
+
+ 
   const sessionNum = Math.floor(1000 + Math.random() * 9000)
 
      const client = new SessionsClient(
@@ -31,8 +34,8 @@ const fs = require('fs');
          }
      );
    
-     exports.detectIntentText  = async(queryInput)=> {
-         const sessionId = '8738545981218952'
+     const detectIntentText  = async(queryInput)=> {
+         const sessionId = '87365852'
  
       //  const sessionId = Math.random().toString(36).substring(7);
        const sessionPath = client.projectLocationAgentSessionPath(
@@ -50,9 +53,11 @@ const fs = require('fs');
            languageCode,
          },
        };
+
+       
        
        const [response] = await client.detectIntent(request);
-     //   console.log(response)
+       console.log('response')
        for (const message of response.queryResult.responseMessages) {
          if (message.text) {
            console.log(`Agent Response: ${message.text.text}`);
@@ -73,6 +78,6 @@ const fs = require('fs');
      }
    
 
-    //  module.exports = {
-    //     detectIntentText
-    // };
+     module.exports = {
+        detectIntentText
+    };
